@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Income Form</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script>
+    function showErrorIcon(val) {
+    const errorIcon = document.getElementById("error");
+    if (isNaN(parseFloat(val))) {
+        errorIcon.style.display = "inline-block"; // Show error icon if input is not a number
+    } else {
+        errorIcon.style.display = "none"; // Hide error icon if input is a number
+    }
+  }
+
+  function showErrorIcon2(val) {
+    const errorIcon = document.getElementById("error2");
+    if (isNaN(parseFloat(val))) {
+        errorIcon.style.display = "inline-block"; // Show error icon if input is not a number
+    } else {
+        errorIcon.style.display = "none"; // Hide error icon if input is a number
+    }}
+
+    function showErrorIcon3(val) {
+    const errorIcon = document.getElementById("error3");
+    if (isNaN(parseFloat(val))) {
+        errorIcon.style.display = "inline-block"; // Show error icon if input is not a number
+    } else {
+        errorIcon.style.display = "none"; // Hide error icon if input is a number
+    }}
+
+    const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+    const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+  </script>
+
+</head>
+<body>
+  <div class="container">
+    <div class="form-container">
+      <form id="incomeForm">
+        <div class="form-group">
+          <label for="grossIncome">Enter gross annual income </label> <i id="popverdata" class="fa-regular fa-circle-question" data-trigger="hover" data-toggle="popover" data-placement="top"  role="button" data-content="Gross annual income is your total salary in a year before any deductions"></i>
+          <input type="text" id="grossIncome" placeholder="Enter gross annual income"  onchange="showErrorIcon(this.value)" required>
+          <i class="fa-solid fa-circle-exclamation" title="Please enter a valid number" id="error"></i>
+          <!-- <small>Please enter numbers only</small> -->
+        </div>
+        <div class="form-group">
+          <label for="extraIncome">Enter extra income </label> <div class="fa-regular fa-circle-question"></div>
+          <input type="text" id="extraIncome" placeholder="Enter extra income from other sources" onchange="showErrorIcon2(this.value)" >
+          <i class="fa-solid fa-circle-exclamation" title="Please enter a valid number" id="error2" ></i>
+        </div>
+        <div class="form-group">
+          <label for="ageGroup">Enter age group</label> <i class="fa-regular fa-circle-question"></i>
+          <select id="ageGroup" required>
+            <option value="">Select age group</option>
+            <option value="<40">< 40</option>
+            <option value=">=40&<60">≥ 40 & < 60</option>
+            <option value=">=60">≥ 60</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="deductions">Enter total applicable deductions </label> <i class="fa-regular fa-circle-question"></i>
+          <input type="text" id="deductions" placeholder="Add total applicable deductions" onchange="showErrorIcon3(this.value)">
+          <i class="fa-solid fa-circle-exclamation" id="error3" title="Please enter a valid number"></i>
+        </div>
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p id="modalMessage"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4BS+8k+1/4Z+d4y0Pvht7UqyEW+OrCX7pVqtnf" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-53T2CT/+AY3wrwNc29XcYMDum+kVN4IlCkx8P+/6UC+LvmdNPK12soIc6kFLfz8+" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"></script>
+  
+  
+</body>
+</html>
